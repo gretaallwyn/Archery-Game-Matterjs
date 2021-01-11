@@ -1,3 +1,1 @@
-# angryBirdsStage2.5
-Angry Birds stage 2.5 with Class Inheritance and Images    
-platform added
+# Archer Game using MAtter.js library
