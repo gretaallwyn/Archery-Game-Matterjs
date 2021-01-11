@@ -39,7 +39,7 @@ function setup(){
     board= new Board(width-400,height/2+100);
 
     //four arrow objects
-    arr1= new Arrow(280,400,250,100);
+    arr1= new Arrow(265,350,250,100);
     arr2= new Arrow(380,740,250,100);
     arr3= new Arrow(380,740,250,100);
     arr4= new Arrow(380,740,250,100);
@@ -53,7 +53,7 @@ function setup(){
 
 
     //constraint to drag and release arrow from bow 
-    bow= new Bow(arr1.body,{x:280,y:420})
+    bow= new Bow(arr1.body,{x:265,y:350})
     //ground= createSprite(width/4,height-40,400,5);
 }
 
@@ -68,9 +68,7 @@ function draw(){
     
 
 
-    textSize(20);
-    fill("blue");
-    text(mouseX+","+mouseY,mouseX,mouseY);
+  
 
     //image of the man
 
@@ -98,12 +96,16 @@ function draw(){
     //         Matter.Body.setStatic(arrows[arrows.length-1].body,true);
     // }
     //drawSprites();
+
+    textSize(20);
+    fill("blue");
+    text(mouseX+","+mouseY,mouseX,mouseY);
 }
 
 function mouseDragged(){
     if (gameState!=="launched"){
         Matter.Body.setPosition(arrows[arrows.length-1].body, {x: mouseX , y: mouseY});
-       Matter.Body.applyForce(arrows[arrows.length-1].body,arrows[arrows.length-1].body.position,{x:5,y:-5})
+      // Matter.Body.applyForce(arrows[arrows.length-1].body,arrows[arrows.length-1].body.position,{x:5,y:-5})
        return false;
     }
 }
@@ -119,7 +121,7 @@ function mouseReleased(){
 function keyPressed(){
     if(keyCode===32 && gameState==="launched"){
         if(arrows.length>=0){
-            Matter.Body.setPosition(arrows[arrows.length-1].body,{x:280,y:420})
+            Matter.Body.setPosition(arrows[arrows.length-1].body,{x:265,y:350})
             bow.attach(arrows[arrows.length-1].body);
             gameState = "onBow";
         }
